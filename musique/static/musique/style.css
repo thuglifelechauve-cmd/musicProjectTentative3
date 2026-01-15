@@ -209,7 +209,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #5568d3;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
