@@ -1,0 +1,28 @@
+{% extends 'musique/base.html' %}
+
+{% block titre %}{{ titre_page }} - Gestion de Musiques{% endblock %}
+
+{% block contenu %}
+<h2>{{ titre_page }}</h2>
+
+<div class="confirmation-suppression">
+    <p>Êtes-vous sûr de vouloir supprimer cette musique ?</p>
+
+    <dl>
+        <dt>Titre:</dt>
+        <dd>{{ musique.titre }}</dd>
+
+        <dt>Artiste:</dt>
+        <dd>{{ musique.artiste }}</dd>
+
+        <dt>Style:</dt>
+        <dd>{{ musique.style }}</dd>
+    </dl>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer la suppression</button>
+        <a href="{% url 'musique:detail' musique.id %}">Annuler</a>
+    </form>
+</div>
+{% endblock %}

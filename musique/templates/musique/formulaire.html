@@ -1,0 +1,54 @@
+{% extends 'musique/base.html' %}
+
+{% block titre %}{{ titre_page }} - Gestion de Musiques{% endblock %}
+
+{% block contenu %}
+<h2>{{ titre_page }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="id_artiste">{{ formulaire.artiste.label }}:</label>
+        {{ formulaire.artiste }}
+        {% if formulaire.artiste.errors %}
+        <div class="erreurs">
+            {{ formulaire.artiste.errors }}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="id_titre">{{ formulaire.titre.label }}:</label>
+        {{ formulaire.titre }}
+        {% if formulaire.titre.errors %}
+        <div class="erreurs">
+            {{ formulaire.titre.errors }}
+        </div>
+        {% endif %}
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="id_style">{{ formulaire.style.label }}:</label>
+        {{ formulaire.style }}
+        {% if formulaire.style.errors %}
+        <div class="erreurs">
+            {{ formulaire.style.errors }}
+        </div>
+        {% endif %}
+    </div>
+
+    {% if formulaire.non_field_errors %}
+    <div class="erreurs">
+        {{ formulaire.non_field_errors }}
+    </div>
+    {% endif %}
+
+    <div class="form-actions">
+        <button type="submit">{{ action }}</button>
+        <a href="{% url 'musique:liste' %}">Annuler</a>
+    </div>
+</form>
+{% endblock %}

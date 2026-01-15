@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre %}Gestion de Musiques{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'musique/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Bibliothèque Musicale</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'musique:liste' %}">Liste des musiques</a></li>
+                <li><a href="{% url 'musique:creer' %}">Ajouter une musique</a></li>
+                <li><a href="/admin/">Administration</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block contenu %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bibliothèque Musicale - Projet Django CRUD</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

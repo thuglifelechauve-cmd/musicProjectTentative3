@@ -1,0 +1,53 @@
+{% extends 'musique/base.html' %}
+
+{% block titre %}{{ titre_page }} - Gestion de Musiques{% endblock %}
+
+{% block contenu %}
+<h2>{{ titre_page }}</h2>
+
+<div class="search-container" style="margin-bottom: 20px;">
+    <input type="text" id="searchInput" placeholder="Rechercher une musique..."
+        style="padding: 10px; width: 100%; max-width: 300px;">
+    <p><small>La recherche se lance automatiquement (AJAX).</small></p>
+</div>
+
+<div id="searchResults">
+    <!-- Les résultats de recherche pourraient aussi être affichés ici, 
+         mais nous allons mettre à jour le tableau directement pour cet exemple -->
+</div>
+
+{% if musiques %}
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Artiste</th>
+            <th>Style</th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for musique in musiques %}
+        <tr>
+            <td>{{ musique.titre }}</td>
+            <td>{{ musique.artiste }}</td>
+            <td>{{ musique.style }}</td>
+
+            <td>
+                <a href="{% url 'musique:modifier' musique.id %}">Modifier</a>
+                <a href="{% url 'musique:supprimer' musique.id %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Aucune musique dans la bibliothèque. <a href="{% url 'musique:creer' %}">Ajoutez-en une !</a></p>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% load static %}
+<script src="{% static 'musique/script.js' %}"></script>
+{% endblock %}

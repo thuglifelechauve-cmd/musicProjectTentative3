@@ -1,0 +1,26 @@
+{% extends 'musique/base.html' %}
+
+{% block titre %}{{ titre_page }} - Gestion de Musiques{% endblock %}
+
+{% block contenu %}
+<h2>{{ titre_page }}</h2>
+
+<div class="detail-musique">
+    <dl>
+        <dt>Titre:</dt>
+        <dd>{{ musique.titre }}</dd>
+
+        <dt>Artiste:</dt>
+        <dd>{{ musique.artiste }}</dd>
+
+        <dt>Style:</dt>
+        <dd>{{ musique.style }}</dd>
+    </dl>
+
+    <div class="actions">
+        <a href="{% url 'musique:modifier' musique.id %}">Modifier</a>
+        <a href="{% url 'musique:supprimer' musique.id %}">Supprimer</a>
+        <a href="{% url 'musique:liste' %}">Retour à la liste</a>
+    </div>
+</div>
+{% endblock %}
