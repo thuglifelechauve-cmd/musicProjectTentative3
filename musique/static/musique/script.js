@@ -96,12 +96,12 @@ function updateDOM(data) {
 
         // Liens d'action
         const linkModif = document.createElement('a');
-        linkModif.href = `/musique/${musique.id}/modifier/`;
+        linkModif.href = `/musiques/${musique.id}/modifier/`;
         linkModif.textContent = "Modifier";
         linkModif.style.marginRight = "10px";
 
         const linkSuppr = document.createElement('a');
-        linkSuppr.href = `/musique/${musique.id}/supprimer/`;
+        linkSuppr.href = `/musiques/${musique.id}/supprimer/`;
         linkSuppr.textContent = "Supprimer";
 
         // Assemblage de l'arbre DOM
