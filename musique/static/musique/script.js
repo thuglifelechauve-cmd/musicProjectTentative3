@@ -31,7 +31,7 @@ function ajaxGet(url, callback) {
     const xhr = new XMLHttpRequest();
 
     // Configuration de la requête méthode GET, URL, asynchrone (true)
-    xhr.open("GET", url, false);
+    xhr.open("GET", url, true);
 
     // Gestion de l'événement de changement d'état
     xhr.onreadystatechange = function () {
