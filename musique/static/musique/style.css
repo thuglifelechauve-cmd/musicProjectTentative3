@@ -34,13 +34,13 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
+    color: #667eea;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #667eea;
+    color: #764ba2;
 }
 
 /* Contenu principal */
