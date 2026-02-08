@@ -65,9 +65,10 @@ h2 {
 }
 
 .message {
-    padding: 1rem;
-    border-radius: 5px;
+    padding: 1.2rem;
+    border-radius: 6px;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .message.success {
