@@ -64,6 +64,8 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
+/*pa_autoconfigure_django.py --python=3.10 https://github.com/thuglifelechauve-cmd/musicProjectTentative3.git*/
+
 .message {
     padding: 1.2rem;
     border-radius: 6px;
